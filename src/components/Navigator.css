@@ -1,0 +1,16 @@
+ul
+{
+    display: flex;
+   list-style: none;
+   background-color: black;
+   opacity: 0.8;
+   justify-content: space-around;
+   height: 10vh;
+   align-items: center;
+   top:0;
+
+}
+li
+{
+    color: azure;
+}
