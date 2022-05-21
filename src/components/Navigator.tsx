@@ -7,12 +7,11 @@ const Navigator = () => {
   return (
     <>
       <ul className="list">
-
         <li>
           <button onClick={() => navigate("/sachin")}>Sachin</button>
         </li>
         <li>
-          <button onClick={() => navigate("/rohit")}>Rohit</button>
+          <button onClick={() => navigate("/rohit")}>Rohit Sharama</button>
         </li>
         <li>
           <button onClick={() => navigate("/virat")}>Virat</button>
