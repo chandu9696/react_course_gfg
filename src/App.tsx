@@ -13,6 +13,8 @@ import Sachin from './components/Sachin';
 import Rohit from './components/Rohit';
 import UserParams from './components/UserParams';
 import ParamOperation from './components/ParamOperation';
+import Form from './components/form';
+import NoteTaking from './components/NoteTaking';
 function App() {
   return (
     <div> 
@@ -26,6 +28,9 @@ function App() {
       <Route path="/:x/:operator/:y" element={<ParamOperation />}></Route>
       <Route path="/:x///:y" element={<ParamOperation />}></Route>
       <Route path="*" element={<Navigate to="/" />}></Route>
+      <Route path="/form" element={<Form/>}></Route>
+      <Route path="/note" element={<NoteTaking/>}></Route>
+
 
     </Routes>
   </BrowserRouter>
