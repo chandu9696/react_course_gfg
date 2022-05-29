@@ -15,6 +15,10 @@ import UserParams from './components/UserParams';
 import ParamOperation from './components/ParamOperation';
 import Form from './components/form';
 import NoteTaking from './components/NoteTaking';
+import Coursal from './components/CorosalItem';
+import UseEffect1 from './components/UseEffect1';
+import UseEffect2 from './components/Useeffect2';
+import UseEffect3 from './components/UseEffect3';
 function App() {
   return (
     <div> 
@@ -30,6 +34,10 @@ function App() {
       <Route path="*" element={<Navigate to="/" />}></Route>
       <Route path="/form" element={<Form/>}></Route>
       <Route path="/note" element={<NoteTaking/>}></Route>
+      <Route path="/corosal" element={<Coursal/>}></Route>
+      <Route path="/useeffect" element={<UseEffect1/>}></Route>
+      <Route path="/useeffect1" element={<UseEffect2/>}></Route>
+      <Route path="/useeffect2" element={<UseEffect3/>}></Route>
 
 
     </Routes>

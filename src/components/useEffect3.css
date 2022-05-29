@@ -1,0 +1,62 @@
+.container{
+    width: 100vw;
+    overflow: auto;
+    background-color: lightgreen;
+  }
+.controls
+{
+    background-color: black;
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    align-items: center;
+}
+.user_info
+{
+    margin-top: 9vh;
+    display: grid;
+    width: 100vw;
+    height: 100vh;
+    row-gap: 9px;
+    column-gap: 9px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+.single_user
+{
+    width: 30vw;
+}
+.user_info img
+{
+    margin-top: 6px;
+    width: 200px;
+    height: 200px;
+    border: black solid 5px;
+    
+}
+@media screen and (max-width: 688px) {
+    .user_info {
+        margin-top: 0;
+      display: block;
+    
+    }
+    .single_user
+    {
+        margin-left: auto;
+        width: 85vw;
+    }
+  }
+  @media screen and (max-width: 473px) {
+   .controls
+   {
+       flex-direction: column;
+       height: 20vh;
+   }
+  }
+  .search_box label
+  {
+      margin-right: 7px;
+  }

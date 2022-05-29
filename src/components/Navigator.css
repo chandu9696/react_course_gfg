@@ -15,3 +15,11 @@ li
 {
     color: azure;
 }
+
+@media screen and (max-width: 550px) {
+ ul
+ {
+     flex-direction: column;
+     height: 20vh;
+ }
+}
