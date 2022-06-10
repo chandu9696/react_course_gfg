@@ -130,14 +130,16 @@ export default function NoteTaking()
     }
     return(
        <div className="main">
-        <div className="btns">
-
+        <div className="controls">
+        <div>
      
         <input type='text'placeholder='Add Item' onChange={e=>setvalue(e.target.value)}></input>
-        <div className="btn2">
 
       
         <button onClick={()=>addnote([...note,value])}>Add</button>
+        </div>
+        <div className="search_text">
+            <label>Search Here</label>
         <input type='text' value={searchText} placeholder='Search Item' onChange={(e)=>SetsearchText(e.target.value)}></input>
 
         </div>

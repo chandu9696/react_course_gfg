@@ -19,9 +19,17 @@ import Coursal from './components/CorosalItem';
 import UseEffect1 from './components/UseEffect1';
 import UseEffect2 from './components/Useeffect2';
 import UseEffect3 from './components/UseEffect3';
+import ContextParent from './components/ContextParent';
+import { Provider } from 'react-redux';
+import { configureStoref } from './components/AppState';
+import ReduxExample from './components/ReduxExample';
+import Hotel from './components/Hotels';
+import MaterialUI from './components/MaterialUI';
+import Weather from './components/Weather';
 function App() {
   return (
     <div> 
+      <Provider store={configureStoref()}>
       <BrowserRouter>
      <Routes>
       <Route path="virat" element={<Virat />} />
@@ -38,10 +46,16 @@ function App() {
       <Route path="/useeffect" element={<UseEffect1/>}></Route>
       <Route path="/useeffect1" element={<UseEffect2/>}></Route>
       <Route path="/useeffect2" element={<UseEffect3/>}></Route>
+      <Route path='/useContext' element={<ContextParent/>}></Route>
+      <Route path='/useRedux' element={<ReduxExample/>}></Route>
+      <Route path='/hotel' element={<Hotel/>}></Route>
+      <Route path='/materialUI' element={<MaterialUI/>}></Route>
+      <Route path='/weather' element={<Weather/>}></Route>
 
 
     </Routes>
   </BrowserRouter>
+  </Provider>
     </div>
       
   );

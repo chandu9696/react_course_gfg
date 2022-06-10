@@ -1,7 +1,7 @@
 .btns
 {
     display: flex;
-    justify-content: center;
+    justify-content: space-around
 }
 .btn2
 {
@@ -22,6 +22,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.search_text label
+{
+    margin: 7px;
+
 }
 textarea
 {
