@@ -26,16 +26,19 @@ import ReduxExample from './components/ReduxExample';
 import Hotel from './components/Hotels';
 import MaterialUI from './components/MaterialUI';
 import Weather from './components/Weather';
+import Login from './components/Login';
+import SignUp from './components/SignUp';
+import Hotels from './components/Hotels';
 function App() {
   return (
-    <div> 
+    
       <Provider store={configureStoref()}>
       <BrowserRouter>
      <Routes>
       <Route path="virat" element={<Virat />} />
       <Route path="sachin" element={<Sachin />} />
       <Route path="rohit" element={<Rohit />} />
-      <Route path="/" element={<Home />} />
+      
       <Route path="/user/:userId" element={<UserParams />}></Route>
       <Route path="/:x/:operator/:y" element={<ParamOperation />}></Route>
       <Route path="/:x///:y" element={<ParamOperation />}></Route>
@@ -51,12 +54,15 @@ function App() {
       <Route path='/hotel' element={<Hotel/>}></Route>
       <Route path='/materialUI' element={<MaterialUI/>}></Route>
       <Route path='/weather' element={<Weather/>}></Route>
+      <Route path='/login' element={<Login/>}></Route>
+      <Route path='/signup' element={<SignUp/>}></Route>
+      <Route path="/" element={<Hotels />} />
 
 
     </Routes>
   </BrowserRouter>
   </Provider>
-    </div>
+    
       
   );
 }

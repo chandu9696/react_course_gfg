@@ -1,0 +1,55 @@
+.Nav_Item
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.btn
+{
+    background-color:orange!important ;
+    color: antiquewhite;
+}
+.search_
+{
+    margin-left: 10px;
+
+
+    width: 40%;
+    height: 25px;
+    background-color: white!important;
+}
+.app
+{
+    display: flex;
+}
+.hand
+{
+    display: none;
+    position: absolute;
+    top:0;
+    right:0;
+}
+.hand img
+{
+    width: 23px;
+    height: 23px;
+}
+.color_giver
+{
+    background-color: blue;
+    width: 100vw;
+    height: 8vh;
+}
+@media screen and (max-width: 500px) {
+    .Nav_Item {
+        padding-top:40px;
+        flex-direction: column;
+        gap:10px;
+       
+    }
+    .hand
+    {
+        display: block;
+    }
+  }

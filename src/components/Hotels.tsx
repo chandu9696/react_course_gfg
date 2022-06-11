@@ -5,13 +5,14 @@ import { Interface } from "readline";
 import { AppState } from "./AppState";
 import { Ihotel, setHotel } from "./Reducers/HotelsSlice";
 import Hotel from "./Hotel";
+import TopBar from "./TopBar";
 
 
 
 export default function Hotels()
 {
     const usedispatch=useDispatch()
-        const count=useSelector((x:AppState)=>x.hotelslice)
+    const count=useSelector((x:AppState)=>x.hotelslice)
         
     useEffect(()=>
     {
@@ -35,7 +36,8 @@ export default function Hotels()
         {/* {console.log(count)}
       <p>{count.length}</p>
        <p>hello</p> */}
-         <div className="main_hele">
+       <TopBar/>
+      <div className="main_hele">
       {count.map((x,i)=> <Hotel key={i} {...x}/>)}
     </div>
     </>
