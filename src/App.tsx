@@ -29,6 +29,7 @@ import Weather from './components/Weather';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Hotels from './components/Hotels';
+// import './SetupFireBase';
 function App() {
   return (
     

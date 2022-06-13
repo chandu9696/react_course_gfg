@@ -13,6 +13,7 @@ export default function Hotels()
 {
     const usedispatch=useDispatch()
     const count=useSelector((x:AppState)=>x.hotelslice)
+    const search_t=useSelector((x:AppState)=>x.valueset)
         
     useEffect(()=>
     {
@@ -32,14 +33,24 @@ export default function Hotels()
         api();
     },[])
     return(
-      <>
+      <div>
         {/* {console.log(count)}
       <p>{count.length}</p>
        <p>hello</p> */}
        <TopBar/>
+       
       <div className="main_hele">
-      {count.map((x,i)=> <Hotel key={i} {...x}/>)}
+      {count.map((x,i)=> {
+          {console.log(search_t.name)}
+      if(x.name.toLocaleLowerCase().includes(search_t.name.toLocaleLowerCase()))
+      return(
+        <>
+      
+      
+      <Hotel key={i} {...x}/>
+      </>
+      )})}
     </div>
-    </>
+    </div>
     )
 }
