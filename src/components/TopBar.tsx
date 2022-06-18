@@ -1,5 +1,5 @@
 import { AppBar, Button, InputBase } from "@mui/material";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { FaSistrix} from "react-icons/fa"
@@ -7,12 +7,13 @@ import './TopBar.css'
 import { AppState } from "./AppState";
 import { useDispatch, useSelector } from "react-redux";
 import { setName_ } from "./Reducers/SetSearchTest";
+import { Context } from "./ContextParent";
 
 export default function TopBar() {
     const [data, setData] = useState<boolean>(true);
     const usedispatch=useDispatch()
-    const search_t=useSelector((x:AppState)=>x.valueset)
-    {console.log(search_t)}
+    const user=useContext(Context)
+    
     const navigate = useNavigate();
     return (
         
@@ -28,9 +29,9 @@ export default function TopBar() {
                 </div>
                 
 
-                <Button className='btn' onClick={() => navigate('/login')}>Login</Button>
-                <Button className='btn' onClick={() => navigate('/signup')}>Sign Up</Button>
-                <Button className='btn'>Profile</Button>
+                { !user && <Button className='btn' onClick={() => navigate('/login')}>Login</Button>}
+                {!user && <Button className='btn' onClick={() => navigate('/signup')}>Sign Up</Button>}
+                {user &&<Button className='btn' onClick={() => navigate('/profile')}>Profile</Button>}
 
             </div> : <div className="color_giver">   <div className="logo">
                     <img src='https://rc.jiomeet.com/assets/img/website/website_logo_header_light.svg'></img>

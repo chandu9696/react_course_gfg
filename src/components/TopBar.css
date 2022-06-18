@@ -10,23 +10,27 @@
     background-color:ora#1976d2!important ;
     color: antiquewhite!important;
 }
+svg
+{
+    margin-left: 10px;
+}
 .search_box_head
 {
     display: flex;
     width: 40%;
     background-color:#1976d2;
     border: 1px solid #2c4152;
-    border-radius: 10px;
+    border-radius: 24px;
     align-items: center;
 }
 .search_
 {
     outline: none;
     margin-left: 5px;
-    margin-right: 5px;
+    margin-right: 15px;
 
     width: 100%;
-    height: 25px;
+    height: 30px;
     background-color:#1976d2!important;
 }
 .app

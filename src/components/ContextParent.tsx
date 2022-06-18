@@ -1,14 +1,23 @@
+import { onAuthStateChanged, User } from "firebase/auth";
 import { createContext, useState } from "react"
 import ChildContext from "./ChildContext"
-
-export const Context=createContext<string|undefined>('')
-export default function ContextParent()
+import { auth } from "./SetupFireBase";
+interface Iprops
 {
-    const [text,SetText]=useState<string>('')
+    children:React.ReactNode
+}
+export const Context=createContext<any|null>(null)
+export default function ContextParent(props:Iprops)
+{
+    onAuthStateChanged(auth, (currentUser:User|null) => {
+        setUser(currentUser);
+      });
+    
+    const [user,setUser]=useState<User|null>(null)
     return(
-        <Context.Provider value={text}>
-            <input type='text' onChange={(e)=>{SetText(e.target.value)}}/>
-            <ChildContext/>
+        <Context.Provider value={user}>
+            {props.children}
+          
         </Context.Provider>
     )
 

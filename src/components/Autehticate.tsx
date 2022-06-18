@@ -24,7 +24,7 @@ export default function Autehticate(props:IAuticate)
     // {
     //    props.onSubmitClick
     // }
-    const {register,handleSubmit,formState:{errors}}=useForm<IUser>()
+    const {register,handleSubmit,reset,formState:{errors}}=useForm<IUser>()
     return(
         <form onSubmit={handleSubmit(props.onSubmitClick1)}>
         <div className="outer_box">
@@ -52,7 +52,7 @@ export default function Autehticate(props:IAuticate)
      })}></TextField>
         <div className="btn_pro">
         <Fab color='primary' variant="extended" type='submit'>Submit</Fab>
-        <Fab color='secondary' variant="extended">Reset</Fab>
+        <Fab color='secondary' variant="extended" onClick={()=>reset()}>Reset</Fab>
         {props.islogin && <Fab variant="extended" onClick={()=>navigate('/login')}>Login</Fab>}
         {props.issignup && <Fab variant="extended" onClick={()=>navigate('/signup')}>Sign up</Fab>}
         <Fab variant="extended" onClick={()=>navigate('/')}>Home</Fab>
@@ -63,3 +63,4 @@ export default function Autehticate(props:IAuticate)
         </form>
     )
 }
+

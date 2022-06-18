@@ -29,10 +29,11 @@ import Weather from './components/Weather';
 import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Hotels from './components/Hotels';
+import Profile from './components/Profile';
 // import './SetupFireBase';
 function App() {
   return (
-    
+    <ContextParent>
       <Provider store={configureStoref()}>
       <BrowserRouter>
      <Routes>
@@ -50,7 +51,8 @@ function App() {
       <Route path="/useeffect" element={<UseEffect1/>}></Route>
       <Route path="/useeffect1" element={<UseEffect2/>}></Route>
       <Route path="/useeffect2" element={<UseEffect3/>}></Route>
-      <Route path='/useContext' element={<ContextParent/>}></Route>
+      <Route path='/profile'element={<Profile/>}></Route>
+  
       <Route path='/useRedux' element={<ReduxExample/>}></Route>
       <Route path='/hotel' element={<Hotel/>}></Route>
       <Route path='/materialUI' element={<MaterialUI/>}></Route>
@@ -63,6 +65,7 @@ function App() {
     </Routes>
   </BrowserRouter>
   </Provider>
+  </ContextParent>
     
       
   );
