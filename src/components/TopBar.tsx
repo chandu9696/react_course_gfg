@@ -13,7 +13,7 @@ export default function TopBar() {
     const [data, setData] = useState<boolean>(true);
     const usedispatch=useDispatch()
     const user=useContext(Context)
-    
+   
     const navigate = useNavigate();
     return (
         
@@ -31,6 +31,7 @@ export default function TopBar() {
 
                 { !user && <Button className='btn' onClick={() => navigate('/login')}>Login</Button>}
                 {!user && <Button className='btn' onClick={() => navigate('/signup')}>Sign Up</Button>}
+                {user &&<Button className='btn' onClick={() => navigate('/favhotel')}>My Fav</Button>}
                 {user &&<Button className='btn' onClick={() => navigate('/profile')}>Profile</Button>}
 
             </div> : <div className="color_giver">   <div className="logo">

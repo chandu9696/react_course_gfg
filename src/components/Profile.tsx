@@ -18,6 +18,7 @@ export default function Profile()
     function handleChange(e:any) {
       if (e.target.files[0]) {
         setPhoto(e.target.files[0])
+        console.log(e.target.files[0])
       }
     }
     async function upload(file:any, user:any) {
@@ -27,8 +28,13 @@ export default function Profile()
         
         const snapshot = await uploadBytes(fileRef, file);
         const photoURL = await getDownloadURL(fileRef);
-      
+     
+        if (user?.photoURL) {
+            setPhotoURL(user.photoURL);
+         }
+         {console.log(photoURL)} 
         updateProfile(user, {photoURL:photoURL});
+   
        
         setLoading(false);
         alert("Uploaded file!");
@@ -36,12 +42,11 @@ export default function Profile()
   
     function handleClick() {
       upload(photo, user);
-    //   if (user?.photoURL) {
-    //     setPhotoURL(user.photoURL);
-    //   }
+      
     }
     useEffect(() => {
       if (user?.photoURL) {
+        {console.log(photoURL)} 
         setPhotoURL(user.photoURL);
       }
      }, [user])
@@ -52,18 +57,33 @@ export default function Profile()
     if(user)
     {
          {console.log(photoURL)} 
+         {console.log(photo)}
         return(
             <div className="profile_main">
-                   <Typography variant='h5'>Welcome to Profile page</Typography>
-                 <Typography variant="h5">{user.displayName}</Typography>
-                 <Typography variant='h5'>{user.email}</Typography>
-                 <Typography variant='h5'>{user.uid}</Typography>
-                 <Fab variant="extended" onClick={()=>logout()}>SignOut</Fab>
-                 <Fab variant="extended" onClick={()=>navigate('/')}>Home</Fab>
-                 <input type="file" onChange={(e)=>{handleChange(e)}} />
+                <div className="inside_profile">
+                
+                <Typography variant='h5'>Welcome to Profile page</Typography>
+                <div className='name'>
+                  <Typography variant="h6">Name:</Typography>
+                 <Typography variant="h6">{user.displayName}</Typography>
+                 </div>
+                 <div className='email'>
+                  <Typography variant="h6">Login Email:</Typography>
+                 <Typography variant="h6">{user.email}</Typography>
+                 </div>
+                 <label htmlFor="files" className="btn1">Select Profile Photo</label>
+                <input id="files" type="file" onChange={(e)=>{handleChange(e)}}/>
+             
                  <button disabled={!photo} onClick={()=>{handleClick()}}>Upload</button>
                 
                 <img src={photoURL} alt="Avatar" className="avatar" />
+                 <div className="btn">
+                 <Fab variant="extended" onClick={()=>navigate('/')}>Home</Fab>
+                 <Fab variant="extended" onClick={()=>logout()}>SignOut</Fab>
+                
+                 </div>
+              
+                </div>
             </div>
         )
     }

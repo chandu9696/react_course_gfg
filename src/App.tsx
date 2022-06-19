@@ -30,6 +30,7 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Hotels from './components/Hotels';
 import Profile from './components/Profile';
+import Fav_Hotel from './components/Fav_Hotel';
 // import './SetupFireBase';
 function App() {
   return (
@@ -52,6 +53,8 @@ function App() {
       <Route path="/useeffect1" element={<UseEffect2/>}></Route>
       <Route path="/useeffect2" element={<UseEffect3/>}></Route>
       <Route path='/profile'element={<Profile/>}></Route>
+      <Route path='/favhotel'element={<Fav_Hotel/>}></Route>
+  
   
       <Route path='/useRedux' element={<ReduxExample/>}></Route>
       <Route path='/hotel' element={<Hotel/>}></Route>

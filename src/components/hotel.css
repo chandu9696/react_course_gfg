@@ -18,8 +18,16 @@
     align-items: center;
     justify-items: center;
 }
+.hotel_main .btn1
+{
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+
+}
 .too
 {
+    position: relative!important;
     width: 300px!important;
     height: 300px!important;
     border:3px rgb(17, 0, 128) solid;
