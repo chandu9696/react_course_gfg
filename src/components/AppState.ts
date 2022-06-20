@@ -7,6 +7,7 @@ import Up_downRedux from "./Reducers/Up_downRedux";
 import HotelsSlice from "./Reducers/HotelsSlice";
 import SetSearchTest from "./Reducers/SetSearchTest";
 import SetFavHotel from "./Reducers/SetFavHotel";
+import FlagForFav from "./Reducers/FlagForFav";
 
 export const rootReducer=combineReducers
 ({
@@ -14,7 +15,8 @@ export const rootReducer=combineReducers
     updown:Up_downRedux,
     hotelslice:HotelsSlice,
     valueset:SetSearchTest,
-    hotelfav:SetFavHotel
+    hotelfav:SetFavHotel,
+    flagfavset:FlagForFav
 
 })
 

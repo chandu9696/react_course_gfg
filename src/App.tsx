@@ -31,6 +31,7 @@ import SignUp from './components/SignUp';
 import Hotels from './components/Hotels';
 import Profile from './components/Profile';
 import Fav_Hotel from './components/Fav_Hotel';
+import Display_Api from './components/Display_Api';
 // import './SetupFireBase';
 function App() {
   return (
@@ -62,6 +63,7 @@ function App() {
       <Route path='/weather' element={<Weather/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/signup' element={<SignUp/>}></Route>
+      <Route path='/apidata' element={<Display_Api/>}></Route>
       <Route path="/" element={<Hotels />} />
 
 

@@ -9,6 +9,7 @@ const SetFavHotel=createSlice(
         reducers:{
             setHotelFav(state:Ihotel[],payload:PayloadAction<Ihotel>)
             {
+                
                 return [...state,payload.payload]
             }
         }

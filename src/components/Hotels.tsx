@@ -6,6 +6,7 @@ import { AppState } from "./AppState";
 import { Ihotel, setHotel } from "./Reducers/HotelsSlice";
 import Hotel from "./Hotel";
 import TopBar from "./TopBar";
+import { SetFlag } from "./Reducers/FlagForFav";
 
 
 
@@ -14,7 +15,7 @@ export default function Hotels()
     const usedispatch=useDispatch()
     const count=useSelector((x:AppState)=>x.hotelslice)
     const search_t=useSelector((x:AppState)=>x.valueset)
-        
+    usedispatch(SetFlag(false))
     useEffect(()=>
     {
        
