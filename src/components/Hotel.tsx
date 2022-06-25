@@ -7,6 +7,8 @@ import { setHotelFav } from "./Reducers/SetFavHotel";
 import { useContext } from "react";
 import { Context } from "./ContextParent";
 import { Navigate, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // name:string,
 // id:string,
 // cuisines:string,
@@ -35,6 +37,7 @@ export default function Hotel(props:Ihotel)
             if(!user)
             {
                 navigate('/login')
+                toast.error("You need to Sign in first")
             }
             else
             {
@@ -51,6 +54,9 @@ export default function Hotel(props:Ihotel)
             
             
             Star</button>
+            <button className="btn2" onClick={()=>{
+                toast.success("Comming Soon stay tuned!!", { autoClose: 2000 })
+            }}>Visit</button>
          
         </Card>
      

@@ -60,6 +60,10 @@ svg
     width: 100vw;
     height: 8vh;
 }
+.nav_adjust
+{
+    display: none;
+}
 @media screen and (max-width: 500px) {
     .Nav_Item {
         padding-top:40px;
@@ -79,5 +83,18 @@ svg
     .hand
     {
         display: block;
+    }
+    .nav_adjust
+    {
+        display: block;
+    }
+    .nav_adjust_2
+    {
+        display: none;
+    }
+    .search_box_head
+    {
+        width: 90%;
+        height: 30px;
     }
   }

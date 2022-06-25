@@ -1,3 +1,4 @@
+import { compose } from "@reduxjs/toolkit"
 import { useDispatch, useSelector } from "react-redux"
 import { AppState } from "./AppState"
 import Hotel from "./Hotel"
@@ -10,8 +11,10 @@ export default function Fav_Hotel()
   
     const usedispatch=useDispatch()
     usedispatch(SetFlag(true))
- 
+    console.log(count)
+    if(count.length)
     return(
+      
         <div className="main_hele">
         {count.map((x,i)=> {
         return(
@@ -21,4 +24,6 @@ export default function Fav_Hotel()
         
         </div>
     )
+    else
+    return<>Nothing Here</>
 }

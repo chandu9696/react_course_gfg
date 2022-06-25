@@ -10,6 +10,7 @@
     gap:20px;
     color: whitesmoke;
     background-color: black;
+   
 }
 .inside_profile .name
 {
@@ -17,7 +18,8 @@
 }
 .inside_profile .email
 {
-    display: flex
+    display: flex;
+   
 }
 .inside_profile .btn
 {
@@ -25,6 +27,7 @@
     display: flex;
     justify-content: space-around;
 }
+
 
 .profile_main img
 {
@@ -36,7 +39,16 @@
     border: 2px black solid;
     border-radius: 50px;
 }
+
 #files
 {
     visibility: hidden;
 }
+@media screen and (max-width: 484px) {
+    .inside_profile .email
+{
+    flex-direction: column;
+   
+}
+   
+  }

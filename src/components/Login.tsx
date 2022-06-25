@@ -30,7 +30,7 @@ export default function Login()
     return(
         <>
         <div>
-        {spin && <LoadingSpinner></LoadingSpinner>}
+        {spin && <LoadingSpinner text="Please Wait"></LoadingSpinner>}
             <Autehticate title="Welcome to Login" islogin={false} issignup={true} isusername={false} onSubmitClick1={onSubmitClick}></Autehticate>
         </div>
        

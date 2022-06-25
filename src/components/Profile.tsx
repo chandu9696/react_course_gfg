@@ -7,11 +7,15 @@ import { Context } from "./ContextParent";
 import { auth } from "./SetupFireBase";
 import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import './Profile.css'
+import LoadingSpinner from "./LoadingSpinner";
+import { toast } from "react-toastify";
+import SignoutPopup from "./SignoutPopup";
 export default function Profile()
 {
     const user=useContext(Context)
     const navigate=useNavigate();
     const [photo, setPhoto] = useState(null);
+    const [popup, Setpopup] = useState<boolean>(false)
     const [loading, setLoading] = useState(false);
     const [photoURL, setPhotoURL] = useState("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png");
     const storage = getStorage();
@@ -22,28 +26,48 @@ export default function Profile()
       }
     }
     async function upload(file:any, user:any) {
+      try{
         const fileRef = ref(storage, user.uid + '.jpg');
       
-        // setLoading(true);
+        setLoading(true);
         
         const snapshot = await uploadBytes(fileRef, file);
         const photoURL = await getDownloadURL(fileRef);
      
-        if (user?.photoURL) {
+        
             setPhotoURL(user.photoURL);
-         }
+         
          {console.log(photoURL)} 
         updateProfile(user, {photoURL:photoURL});
    
        
         setLoading(false);
-        alert("Uploaded file!");
+         toast.success('Profile Uploaded sucessfully!')
+        setPhoto(null)
+      }
+      catch(e:any)
+      {
+        console.log(e.message)
+      }
       }
   
-    function handleClick() {
+    function handleClickUpload() {
       upload(photo, user);
       
     }
+    async function handleClickDelete()
+    {
+      setPhotoURL("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
+
+    }
+    function CheckPhoto()
+    {
+      if(photoURL=="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
+      return true;
+      else
+      return false;
+    }
+
     useEffect(() => {
       if (user?.photoURL) {
         {console.log(photoURL)} 
@@ -54,14 +78,16 @@ export default function Profile()
     await signOut(auth);
     navigate('/')
   }
+  
     if(user)
     {
          {console.log(photoURL)} 
          {console.log(photo)}
         return(
+          <>
             <div className="profile_main">
                 <div className="inside_profile">
-                
+                {loading && <LoadingSpinner text="Uploading Photo"/>}
                 <Typography variant='h5'>Welcome to Profile page</Typography>
                 <div className='name'>
                   <Typography variant="h6">Name:</Typography>
@@ -69,22 +95,29 @@ export default function Profile()
                  </div>
                  <div className='email'>
                   <Typography variant="h6">Login Email:</Typography>
-                 <Typography variant="h6">{user.email}</Typography>
+                 <Typography className="email_ac" variant="h6">{user.email}</Typography>
                  </div>
                  <label htmlFor="files" className="btn1">Select Profile Photo</label>
                 <input id="files" type="file" onChange={(e)=>{handleChange(e)}}/>
              
-                 <button disabled={!photo} onClick={()=>{handleClick()}}>Upload</button>
+                 <button disabled={!photo} onClick={()=>{handleClickUpload()}}>Upload</button>
+                 <button disabled={CheckPhoto()} onClick={()=>{handleClickDelete()}}>Delete</button>
                 
                 <img src={photoURL} alt="Avatar" className="avatar" />
                  <div className="btn">
                  <Fab variant="extended" onClick={()=>navigate('/')}>Home</Fab>
-                 <Fab variant="extended" onClick={()=>logout()}>SignOut</Fab>
+                 <Fab variant="extended" onClick={()=>{Setpopup(!popup);console.log(popup)}}>SignOut</Fab>
+              
                 
                  </div>
               
                 </div>
+             
             </div>
+          
+            <SignoutPopup popup1={popup} setpop1={Setpopup} signout={logout}></SignoutPopup>
+         
+            </>
         )
     }
     else
