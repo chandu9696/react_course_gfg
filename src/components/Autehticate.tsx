@@ -32,6 +32,7 @@ export default function Autehticate(props:IAuticate)
         <Typography variant="h5">{props.title}</Typography>
        { props.isusername && <TextField variant="outlined" placeholder='UserName' required
         error={errors?.name?.message!==undefined}
+        data-testId="chandrakantgaikwad9797@gmail.com"
         helperText={errors?.name?.message}
         
         {...register("name",
@@ -43,6 +44,7 @@ export default function Autehticate(props:IAuticate)
         <TextField variant="outlined" placeholder='Email' required {...register("email")}></TextField>
         <TextField variant="outlined" placeholder='Password' type='password' 
         error={errors?.password?.message!==undefined}
+        data-testId="Chandu@9696"
         helperText={errors?.password?.message}
          {...register("password",
          {
