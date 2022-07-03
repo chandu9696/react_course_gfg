@@ -33,6 +33,7 @@ svg
     height: 30px;
     background-color:#1976d2!important;
 }
+
 .app
 {
     display: flex;
@@ -46,11 +47,13 @@ svg
     position: absolute;
     top:0;
     right:0;
+    padding: 0;
+    
 }
 .hand img
 {
-    width: 23px;
-    height: 23px;
+    width: 100%;
+    height: 100%;
 }
 .color_giver
 {

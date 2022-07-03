@@ -11,6 +11,7 @@ import { Context } from "./ContextParent";
 
 export default function TopBar() {
     const [data, setData] = useState<boolean>(false);
+    const [focus,Setfocus]=useState<boolean>(false)
     const usedispatch=useDispatch()
     const user=useContext(Context)
    
@@ -23,9 +24,9 @@ const actualnav= <div className='Nav_Item'>
 <div className="logo">
    <img src='https://rc.jiomeet.com/assets/img/website/website_logo_header_light.svg'></img>
 </div> 
-<div className="search_box_head">
+<div className="search_box_head" style={{border:focus?'2px red solid':''}}>
    <FaSistrix></FaSistrix>
-   <InputBase className="search_" placeholder="Find Here" onChange={(e)=>usedispatch(setName_(e.target.value))}></InputBase>
+   <InputBase className="search_" placeholder="Find Here" onChange={(e)=>usedispatch(setName_(e.target.value))} onFocus={()=>Setfocus(true)}></InputBase>
 </div>
 
 
@@ -47,7 +48,8 @@ const actualnav= <div className='Nav_Item'>
             {!data ?  onlynav:actualnav}
             </div>
 
-            <button className='hand' onClick={() => { setData(!data) }}><img className="img-hand" src='https://prestage.jioevents.com/assets/img/website/swap-me@2x.png'></img></button>
+            <button className='hand' onClick={() => { setData(!data) }}>
+                {!data?<img className="img-hand" src='https://rc.jiomeet.com/hamburger_menu.9549753eb07f6dbf77ae.svg'></img>:<img className="img-hand" src='https://rc.jiomeet.com/hamburger_menu_active.f4e60b66625fc7ae0f86.svg'></img>}</button>
 
         </AppBar>
     )

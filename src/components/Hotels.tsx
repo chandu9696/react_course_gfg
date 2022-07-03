@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Interface } from "readline";
 import { AppState } from "./AppState";
-import { Ihotel, setHotel } from "./Reducers/HotelsSlice";
+import { fetchHotel, Ihotel } from "./Reducers/HotelsSlice";
 import Hotel from "./Hotel";
 import TopBar from "./TopBar";
 import { SetFlag } from "./Reducers/FlagForFav";
@@ -21,9 +21,11 @@ export default function Hotels()
        
         async function api()
         {
-            const respose=await fetch('./hotel.json')
-            const json:{restaurant:Ihotel}[]=await respose.json()
-            usedispatch(setHotel(json.map((x)=>x.restaurant)))
+          
+          usedispatch(fetchHotel())
+            // const respose=await fetch('./hotel.json')
+            // const json:{restaurant:Ihotel}[]=await respose.json()
+            // usedispatch(setHotel(json.map((x)=>x.restaurant)))
 
             //console.log(json.map((x)=>x.restaurant))
           

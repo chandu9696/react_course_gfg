@@ -31,7 +31,9 @@ import SignUp from './components/SignUp';
 import Hotels from './components/Hotels';
 import Profile from './components/Profile';
 import Fav_Hotel from './components/Fav_Hotel';
-import Display_Api from './components/Display_Api';
+
+import HotelDetails from './components/HotelDetails';
+import TestApi from './components/TestApi';
 // import './SetupFireBase';
 function App() {
   return (
@@ -45,8 +47,9 @@ function App() {
       
       <Route path="/user/:userId" element={<UserParams />}></Route>
       <Route path="/:x/:operator/:y" element={<ParamOperation />}></Route>
+      <Route path="/:hotelID" element={<HotelDetails />}></Route>
       <Route path="/:x///:y" element={<ParamOperation />}></Route>
-      <Route path="*" element={<Navigate to="/" />}></Route>
+      {/* <Route path="*" element={<Navigate to="/" />}></Route> */}
       <Route path="/form" element={<Form/>}></Route>
       <Route path="/note" element={<NoteTaking/>}></Route>
       <Route path="/corosal" element={<Coursal/>}></Route>
@@ -55,6 +58,8 @@ function App() {
       <Route path="/useeffect2" element={<UseEffect3/>}></Route>
       <Route path='/profile'element={<Profile/>}></Route>
       <Route path='/favhotel'element={<Fav_Hotel/>}></Route>
+      <Route path='/testapi'element={<TestApi/>}></Route>
+  
   
   
       <Route path='/useRedux' element={<ReduxExample/>}></Route>
@@ -63,7 +68,7 @@ function App() {
       <Route path='/weather' element={<Weather/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/signup' element={<SignUp/>}></Route>
-      <Route path='/apidata' element={<Display_Api/>}></Route>
+     
       <Route path="/" element={<Hotels />} />
 
 

@@ -6,7 +6,7 @@ import { AppState } from "./AppState";
 import { setHotelFav } from "./Reducers/SetFavHotel";
 import { useContext } from "react";
 import { Context } from "./ContextParent";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // name:string,
@@ -21,10 +21,13 @@ export default function Hotel(props:Ihotel)
     const flag=useSelector((x:AppState)=>x.flagfavset.flag)
     const count=useSelector((x:AppState)=>x.hotelfav)
     const user=useContext(Context)
+    {console.log(props.id)}
     {console.log(count)}
     return(
+    
     <div className="hotel_main">
         <Card className="too">
+           
             <CardMedia className='img1' image={props.featured_image}></CardMedia>
             <CardContent>
              <Typography variant="h5">{props.name}</Typography>
@@ -54,9 +57,12 @@ export default function Hotel(props:Ihotel)
             
             
             Star</button>
-            <button className="btn2" onClick={()=>{
+            <Link to={`/${props.id}`}>
+                <button  className="btn2" onClick={()=>{
+                // navigate(`${props.id}`)
                 toast.success("Comming Soon stay tuned!!", { autoClose: 2000 })
-            }}>Visit</button>
+            }}> Visit</button>
+            </Link>
          
         </Card>
      
