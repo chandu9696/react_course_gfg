@@ -44,10 +44,11 @@ function App() {
       <Route path="virat" element={<Virat />} />
       <Route path="sachin" element={<Sachin />} />
       <Route path="rohit" element={<Rohit />} />
-      
+      <Route path="/hotel/:hotelID" element={<HotelDetails />}></Route>
+      <Route path="/favhotel/hotel/:hotelID" element={<HotelDetails />}></Route>
       <Route path="/user/:userId" element={<UserParams />}></Route>
       <Route path="/:x/:operator/:y" element={<ParamOperation />}></Route>
-      <Route path="/:hotelID" element={<HotelDetails />}></Route>
+     
       <Route path="/:x///:y" element={<ParamOperation />}></Route>
       {/* <Route path="*" element={<Navigate to="/" />}></Route> */}
       <Route path="/form" element={<Form/>}></Route>

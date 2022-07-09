@@ -57,7 +57,7 @@ export default function Hotel(props:Ihotel)
             
             
             Star</button>
-            <Link to={`/${props.id}`}>
+            <Link to={`hotel/${props.id}`}>
                 <button  className="btn2" onClick={()=>{
                 // navigate(`${props.id}`)
                 toast.success("Comming Soon stay tuned!!", { autoClose: 2000 })

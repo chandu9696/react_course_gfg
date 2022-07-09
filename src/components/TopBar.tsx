@@ -16,12 +16,12 @@ export default function TopBar() {
     const user=useContext(Context)
    
     const navigate = useNavigate();
-    const onlynav=<div className="color_giver">   <div className="logo">
+    const onlynav=<div className="color_giver">   <div className="logo" onClick={()=>{window.scrollTo(0, 0)}}>
     <img src='https://rc.jiomeet.com/assets/img/website/website_logo_header_light.svg'></img>
 </div> </div>
 
 const actualnav= <div className='Nav_Item'>
-<div className="logo">
+<div className="logo" onClick={()=>{navigate('/');window.scrollTo(0, 0)}}>
    <img src='https://rc.jiomeet.com/assets/img/website/website_logo_header_light.svg'></img>
 </div> 
 <div className="search_box_head" style={{border:focus?'2px red solid':''}}>

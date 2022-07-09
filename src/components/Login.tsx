@@ -5,6 +5,7 @@ import { auth } from "./SetupFireBase";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import LoadingSpinner from "./LoadingSpinner";
+import { toast } from "react-toastify";
 
 export default function Login()
 {
@@ -24,6 +25,8 @@ export default function Login()
             navigate('/')
             console.log(cred);
           } catch (error:any) {
+  
+            return(<div id='toast'>{toast.error('error in id')}</div>)
             console.log(error.message);
           }
     }
