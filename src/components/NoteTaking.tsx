@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { idText } from "typescript";
+
 import './NoteTaking.css';
 export default function NoteTaking()
 
@@ -106,7 +106,7 @@ export default function NoteTaking()
         
         if(listItem.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()))
         {
-            if(listItem=='')
+            if(listItem==='')
             return
             return indexele1===index ? renderUpdate1(index):renderfav(listItem,index);
         }

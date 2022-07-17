@@ -5,9 +5,9 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Navigate,
+
 } from "react-router-dom";
-import Home from './components/Home';
+// import Home from './components/Home';
 import Virat from './components/VIrat';
 import Sachin from './components/Sachin';
 import Rohit from './components/Rohit';
@@ -30,10 +30,12 @@ import Login from './components/Login';
 import SignUp from './components/SignUp';
 import Hotels from './components/Hotels';
 import Profile from './components/Profile';
-import Fav_Hotel from './components/Fav_Hotel';
+import FavHotel from './components/Fav_Hotel';
 
 import HotelDetails from './components/HotelDetails';
 import TestApi from './components/TestApi';
+import SimpleJest from './components/SimpleJest';
+import ApiTest from './components/ApiTest';
 // import './SetupFireBase';
 function App() {
   return (
@@ -58,7 +60,7 @@ function App() {
       <Route path="/useeffect1" element={<UseEffect2/>}></Route>
       <Route path="/useeffect2" element={<UseEffect3/>}></Route>
       <Route path='/profile'element={<Profile/>}></Route>
-      <Route path='/favhotel'element={<Fav_Hotel/>}></Route>
+      <Route path='/favhotel'element={<FavHotel/>}></Route>
       <Route path='/testapi'element={<TestApi/>}></Route>
   
   
@@ -69,6 +71,8 @@ function App() {
       <Route path='/weather' element={<Weather/>}></Route>
       <Route path='/login' element={<Login/>}></Route>
       <Route path='/signup' element={<SignUp/>}></Route>
+      <Route path='/simplejest' element={<SimpleJest/>}></Route>
+      <Route path='/apitest' element={<ApiTest/>}></Route>
      
       <Route path="/" element={<Hotels />} />
 

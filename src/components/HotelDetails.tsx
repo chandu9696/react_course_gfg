@@ -5,6 +5,7 @@ import { Ihotel } from "./Reducers/HotelsSlice";
 import './HotelDetails.css'
 import { Fab } from "@mui/material";
 import { toast } from "react-toastify";
+import LoadingSpinner from "./LoadingSpinner";
 
 export default function HotelDetails()
 {
@@ -12,10 +13,13 @@ export default function HotelDetails()
     const userParams = useParams<{ hotelID: string }>();
     const navigate=useNavigate();
     const [data,Setdata]=useState<Ihotel>();
+    const [loading, setLoading] = useState(false);
+
     // console.log(userParams.hotelID)
     useEffect(()=>{
         async function api()
         {
+        setLoading(true)
         const respose=await fetch(`https://nodegfg.herokuapp.com/${userParams.hotelID}`)
         const json:Ihotel= await respose.json()
         Setdata(json)
@@ -24,14 +28,17 @@ export default function HotelDetails()
         setcusine(new_str)
         console.log(json)
         console.log('test')
+        setLoading(false)
         }
         api();
-    },[])
+    },[userParams])
+    if(!loading)
     return(
         <div className="main_detail">
+            
         <h1>Welcome to {data?.name}</h1>
         {/* <h2>Creatting call with respect to Hotel Id's</h2> */}
-        <img src={data?.featured_image}/>
+        <img src={data?.featured_image} alt='hello'/>
         <div>
         <div className="cusines">
             <h4>Our Specility:</h4>
@@ -52,4 +59,8 @@ export default function HotelDetails()
         {/* <p>{userParams.hotelID}</p> */}
         </div>
     )
+    else
+    {return(
+         <LoadingSpinner text='loading data'></LoadingSpinner>)
+    }
 }

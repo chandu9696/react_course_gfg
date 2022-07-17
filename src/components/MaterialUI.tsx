@@ -1,4 +1,4 @@
-import { Button, Card, CardActionArea, CardContent, CardMedia, CircularProgress, TextField, Typography } from "@mui/material";
+import { Button, Card, CardActionArea, CardContent, CardMedia, CircularProgress, TextField } from "@mui/material";
 
 export default function MaterialUI()
 {

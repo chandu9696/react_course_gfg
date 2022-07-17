@@ -1,7 +1,6 @@
 
 import { Fab } from '@mui/material';
-import { Auth } from 'firebase/auth';
-import { useState } from 'react';
+
 import './SignoutPopup.css';
 interface Ipop
 {

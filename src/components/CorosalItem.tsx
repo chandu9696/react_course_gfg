@@ -17,14 +17,14 @@ export default function Coursal()
         <>
            <button onClick={()=>
             {
-                if(current==0)
+                if(current===0)
                 {setCurrent(images.length-1)
                 }
                 else{
                     setCurrent(current-1)
                 }
             }}>left</button>
-        <img src={images[current]} style={{width:'50vw',height:'50vh'}}/>
+        <img src={images[current]} style={{width:'50vw',height:'50vh'}} alt='test'/>
      
         <button  onClick={()=>{setCurrent((current+1)%images.length)
     console.log(current)}}>right</button>

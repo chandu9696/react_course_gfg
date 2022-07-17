@@ -1,11 +1,11 @@
 import Autehticate from "./Autehticate";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword ,updateProfile} from "firebase/auth";
+import {  signInWithEmailAndPassword } from "firebase/auth";
 import { IUser } from "./Autehticate";
 import { auth } from "./SetupFireBase";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import LoadingSpinner from "./LoadingSpinner";
-import { toast } from "react-toastify";
+
 
 export default function Login()
 {
@@ -20,14 +20,15 @@ export default function Login()
                 data.password
                
             );
+           
             setspin(true)
             
             navigate('/')
             console.log(cred);
+            return "";
           } catch (error:any) {
-  
-            return(<div id='toast'>{toast.error('error in id')}</div>)
             console.log(error.message);
+            return "Invalid Email or password"
           }
     }
     return(

@@ -1,6 +1,6 @@
 import { onAuthStateChanged, User } from "firebase/auth";
 import { createContext, useState } from "react"
-import ChildContext from "./ChildContext"
+
 import { auth } from "./SetupFireBase";
 interface Iprops
 {

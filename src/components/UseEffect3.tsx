@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Interface } from "readline";
+
 import './useEffect3.css'
+import { api3 } from "./Api";
 interface IUrl
 {
     id:number,email:string,first_name:string,last_name:string,avatar:string}
@@ -13,16 +14,11 @@ export default function UseEffect3()
    
     useEffect(()=>
     {
-        async function api()
-        {
-            const respose=await fetch(`https://reqres.in/api/users?page=${page}`)
-            const json:{data:IUrl[]}=await respose.json()
-            console.log(json.data)
-            setUsername(json.data)
-           
-
+     async function getapi(){
+        const json=await api3()
+        setUsername(json)
         }
-        api();
+        getapi();
     },[page])
     function renderName(user:IUrl)
     {
@@ -33,8 +29,8 @@ export default function UseEffect3()
                 return(
             <div className='single_user'>
 
-            <img src={user.avatar}></img>
-            <p>{user.first_name} {user.last_name}</p>
+            <img src={user.avatar} alt='any'></img>
+            <p data-testid='output'>{user.first_name} {user.last_name}</p>
             </div>)
             }
             return;
@@ -100,3 +96,5 @@ export default function UseEffect3()
     
     )
 }
+
+

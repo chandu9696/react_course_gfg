@@ -1,11 +1,11 @@
 import { AppBar, Button, InputBase } from "@mui/material";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { FaSistrix} from "react-icons/fa"
 import './TopBar.css'
-import { AppState } from "./AppState";
-import { useDispatch, useSelector } from "react-redux";
+
+import { useDispatch} from "react-redux";
 import { setName_ } from "./Reducers/SetSearchTest";
 import { Context } from "./ContextParent";
 
@@ -16,17 +16,20 @@ export default function TopBar() {
     const user=useContext(Context)
    
     const navigate = useNavigate();
+    useEffect(()=>{
+        usedispatch(setName_(''))
+    },[])
     const onlynav=<div className="color_giver">   <div className="logo" onClick={()=>{window.scrollTo(0, 0)}}>
-    <img src='https://rc.jiomeet.com/assets/img/website/website_logo_header_light.svg'></img>
+    <img src='https://rc.jiomeet.com/assets/img/website/website_logo_header_light.svg' alt='miss'></img>
 </div> </div>
 
 const actualnav= <div className='Nav_Item'>
 <div className="logo" onClick={()=>{navigate('/');window.scrollTo(0, 0)}}>
-   <img src='https://rc.jiomeet.com/assets/img/website/website_logo_header_light.svg'></img>
+   <img src='https://rc.jiomeet.com/assets/img/website/website_logo_header_light.svg' alt='miss'></img>
 </div> 
-<div className="search_box_head" style={{border:focus?'2px red solid':''}}>
+<div className="search_box_head" >
    <FaSistrix></FaSistrix>
-   <InputBase className="search_" placeholder="Find Here" onChange={(e)=>usedispatch(setName_(e.target.value))} onFocus={()=>Setfocus(true)}></InputBase>
+   <InputBase className="search_" data-testid="input1" placeholder="Find Here" onChange={(e)=>usedispatch(setName_(e.target.value))} onFocus={()=>Setfocus(true)}></InputBase>
 </div>
 
 
@@ -49,7 +52,7 @@ const actualnav= <div className='Nav_Item'>
             </div>
 
             <button className='hand' onClick={() => { setData(!data) }}>
-                {!data?<img className="img-hand" src='https://rc.jiomeet.com/hamburger_menu.9549753eb07f6dbf77ae.svg'></img>:<img className="img-hand" src='https://rc.jiomeet.com/hamburger_menu_active.f4e60b66625fc7ae0f86.svg'></img>}</button>
+                {!data?<img className="img-hand" src='https://rc.jiomeet.com/hamburger_menu.9549753eb07f6dbf77ae.svg' alt='miss'></img>:<img className="img-hand" src='https://rc.jiomeet.com/hamburger_menu_active.f4e60b66625fc7ae0f86.svg'></img>}</button>
 
         </AppBar>
     )

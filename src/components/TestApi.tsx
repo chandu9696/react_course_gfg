@@ -1,9 +1,6 @@
 import { useEffect, useState } from "react"
-import { json } from "stream/consumers"
-interface Iuser
-{
-    name:string
-}
+
+
 export default function TestApi()
 {
     const [name,setname]=useState<string>()

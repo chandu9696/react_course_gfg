@@ -1,11 +1,11 @@
 import { Fab, Typography } from "@mui/material";
-import { Auth, signOut, updateProfile } from "firebase/auth";
-import { userInfo } from "os";
+import { signOut, updateProfile } from "firebase/auth";
+
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "./ContextParent";
 import { auth } from "./SetupFireBase";
-import { getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { deleteObject,getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
 import './Profile.css'
 import LoadingSpinner from "./LoadingSpinner";
 import { toast } from "react-toastify";
@@ -31,18 +31,19 @@ export default function Profile()
       
         setLoading(true);
         
-        const snapshot = await uploadBytes(fileRef, file);
+        // const snapshot = await uploadBytes(fileRef, file);
         const photoURL = await getDownloadURL(fileRef);
      
         
             setPhotoURL(user.photoURL);
          
-         {console.log(photoURL)} 
+         console.log(photoURL)
         updateProfile(user, {photoURL:photoURL});
    
        
         setLoading(false);
          toast.success('Profile Uploaded sucessfully!')
+         window.location.reload()
         setPhoto(null)
       }
       catch(e:any)
@@ -55,25 +56,63 @@ export default function Profile()
       upload(photo, user);
       
     }
-    async function handleClickDelete()
+    async function upload1(file:any, user:any) {
+      try{
+        // const fileRef = ref(storage, user.uid + '.jpg');
+        let pictureRef = ref(storage, user.uid+'.jpg');
+        deleteObject(pictureRef).then(()=>
+        console.log("deleted"))
+        // setLoading(true);
+        
+        // // const snapshot = await uploadBytes(fileRef, file);
+        // const photoURL = await getDownloadURL(fileRef);
+     
+        
+        setPhotoURL("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png");
+         
+        //  {console.log(photoURL)} 
+        updateProfile(user, {photoURL:"https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png"});
+   
+       
+        // // setLoading(false);
+         toast.success('Profile Deleted sucessfully!')
+        // setPhoto(null)
+      }
+      catch(e:any)
+      {
+        console.log(e.message)
+      }
+      }
+    async function handleClickDelete(file:any, user:any)
     {
-      setPhotoURL("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
+   
+
+      upload1(photo, user);
 
     }
     function CheckPhoto()
     {
-      if(photoURL=="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
+      if(photoURL==="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png")
       return true;
       else
       return false;
     }
 
     useEffect(() => {
+      try{
       if (user?.photoURL) {
+    
         {console.log(photoURL)} 
         setPhotoURL(user.photoURL);
       }
-     }, [user])
+      else{
+        setPhotoURL("https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png");
+      }
+     }
+     catch(e:any){
+      console.log("error")
+
+     }}, [user])
   const logout = async () => {
     await signOut(auth);
     navigate('/')
@@ -101,7 +140,7 @@ export default function Profile()
                 <input id="files" type="file" onChange={(e)=>{handleChange(e)}}/>
              
                  <button disabled={!photo} onClick={()=>{handleClickUpload()}}>Upload</button>
-                 <button disabled={CheckPhoto()} onClick={()=>{handleClickDelete()}}>Delete</button>
+                 <button disabled={CheckPhoto()} onClick={()=>{handleClickDelete(photo,user)}}>Delete</button>
                 
                 <img src={photoURL} alt="Avatar" className="avatar" />
                  <div className="btn">

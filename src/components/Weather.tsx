@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Navigator from "./Navigator";
+
 interface IData
 {
   event:string;

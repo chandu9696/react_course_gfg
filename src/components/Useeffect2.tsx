@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Interface } from "readline";
+
 interface IUrl
 {
     url:string;
@@ -25,16 +25,16 @@ export default function UseEffect2()
       <>
          <button onClick={()=>
             {
-                if(current==1)
+                if(current===1)
                 {setCurrent(5000)
                 }
                 else{
                     setCurrent(current-1)
                 }
             }}>left</button>
-        <img src={url} style={{width:'50vw',height:'50vh'}}/>
+        <img src={url} style={{width:'50vw',height:'50vh'}} alt='missing'/>
      
-        <button  onClick={()=>{if(current==4999){setCurrent(1)}
+        <button  onClick={()=>{if(current===4999){setCurrent(1)}
         else{setCurrent((current+1)%5000)}
     console.log(current)}}>right</button>
     </>
