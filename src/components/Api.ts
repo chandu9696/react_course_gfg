@@ -12,7 +12,7 @@ export async function api2()
     return jason
 
 }
-export async function api3()
+export async function api3(page:any)
 {
     const respose=await fetch(`https://reqres.in/api/users?page=${page}`)
     const json=await respose.json()

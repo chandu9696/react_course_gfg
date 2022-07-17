@@ -15,7 +15,7 @@ export default function UseEffect3()
     useEffect(()=>
     {
      async function getapi(){
-        const json=await api3()
+        const json=await api3(page)
         setUsername(json)
         }
         getapi();
