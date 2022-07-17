@@ -5,7 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "./ContextParent";
 import { auth } from "./SetupFireBase";
-import { deleteObject,getDownloadURL, getStorage, ref, uploadBytes } from "firebase/storage";
+import { deleteObject,getDownloadURL, getStorage, ref} from "firebase/storage";
 import './Profile.css'
 import LoadingSpinner from "./LoadingSpinner";
 import { toast } from "react-toastify";
@@ -102,7 +102,7 @@ export default function Profile()
       try{
       if (user?.photoURL) {
     
-        {console.log(photoURL)} 
+        // {console.log(photoURL)} 
         setPhotoURL(user.photoURL);
       }
       else{
@@ -112,7 +112,7 @@ export default function Profile()
      catch(e:any){
       console.log("error")
 
-     }}, [user])
+     }}, [user,photoURL])
   const logout = async () => {
     await signOut(auth);
     navigate('/')
@@ -120,8 +120,8 @@ export default function Profile()
   
     if(user)
     {
-         {console.log(photoURL)} 
-         {console.log(photo)}
+        //  {console.log(photoURL)} 
+        //  {console.log(photo)}
         return(
           <>
             <div className="profile_main">

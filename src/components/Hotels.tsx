@@ -1,5 +1,5 @@
-import { count } from "console";
-import { useEffect, useState } from "react";
+// import { count } from "console";
+import { useEffect} from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { AppState } from "./AppState";
@@ -49,11 +49,10 @@ export default function Hotels()
       if(x.name.toLocaleLowerCase().includes(search_t.name.toLocaleLowerCase()))
       return(
         <>
-      
-      
       <Hotel key={i} {...x}/>
       </>
-      )})}
+      )
+      return <></>})}
     </div>
     </div>
     )

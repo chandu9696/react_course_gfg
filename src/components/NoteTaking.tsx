@@ -93,7 +93,7 @@ export default function NoteTaking()
         
         if(listItem.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()))
         {
-            if(listItem=='')
+            if(listItem==='')
             return
         
             return indexele===index ? renderUpdate(index):renderList(listItem,index);

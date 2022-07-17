@@ -1,11 +1,8 @@
 import { useEffect, useState } from "react";
-import { Interface } from "readline";
+
 import { api } from "./Api";
 
-interface IUsers
-{
-    username:string;
-}
+
 export default function ApiTest()
 {
     const [userName,setUsername]=useState<string>('');

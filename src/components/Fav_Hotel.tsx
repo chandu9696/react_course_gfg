@@ -35,7 +35,11 @@ export default function FavHotel()
         return(
             <>
         <Hotel key={i} {...x}/>
-        </>)})}
+        </>)
+       return <></> 
+    }
+        
+        )}
         
         </div>
         </>
