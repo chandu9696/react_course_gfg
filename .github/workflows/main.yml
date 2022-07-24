@@ -3,12 +3,12 @@ name: CI/CD
 on:
   push:
     branches:
-      - master
+      - main
   
 jobs:
   build:
  
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
  
     steps:
     - uses: actions/checkout@v1
@@ -16,7 +16,11 @@ jobs:
       run: |
         npm install
         npm run build
+        npm run test
+        npm run cypress
+
+
     - name: Firebase Deploy
       run: |
-        npm install -g firebase-tools
+        sudo npm install -g firebase-tools
         firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}

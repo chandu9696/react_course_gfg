@@ -5,7 +5,7 @@ export default function Form()
 {
     const [first,setFirst]=useState<number>(0);
     const [second,setSecond]=useState<number>(0);
-    const [result,Setresult]=useState<number>(0);
+    
     
 
     return(

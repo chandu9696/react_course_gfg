@@ -6,3 +6,10 @@
 {
   background-color: aqua;
 }
+*
+html,body,#root{
+  width: 100%!important;
+  height: 100vh!important;
+  margin: 0;
+  padding: 0;
+}
