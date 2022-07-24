@@ -35,6 +35,8 @@ import HotelDetails from './components/HotelDetails';
 import TestApi from './components/TestApi';
 import SimpleJest from './components/SimpleJest';
 import ApiTest from './components/ApiTest';
+
+import MongoData from './components/Mongo_Data';
 // import './SetupFireBase';
 function App() {
   return (
@@ -72,7 +74,7 @@ function App() {
       <Route path='/signup' element={<SignUp/>}></Route>
       <Route path='/simplejest' element={<SimpleJest/>}></Route>
       <Route path='/apitest' element={<ApiTest/>}></Route>
-     
+      <Route path='/mongo' element={<MongoData/>}></Route>
       <Route path="/" element={<Hotels />} />
 
 
